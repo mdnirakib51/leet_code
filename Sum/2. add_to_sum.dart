@@ -5,29 +5,53 @@ class ListNode {
   ListNode([this.val = 0, this.next]);
 }
 
-class Solution {
-  ListNode? addTwoNumbers(ListNode? l1, ListNode? l2) {
-    ListNode dummyHead = ListNode(0);
-    ListNode current = dummyHead;
+class Solution{
+  ListNode? addTwoNumbers(ListNode? l1, ListNode? l2){
+    ListNode dummyNode = ListNode(0);
+    ListNode currentNode = dummyNode;
     int carry = 0;
 
-    while (l1 != null || l2 != null || carry != 0) {
+    while(l1 != null || l2 != null || carry != 0){
       int x = l1?.val ?? 0;
       int y = l2?.val ?? 0;
 
       int sum = x + y + carry;
       carry = sum ~/ 10;
+      int digit = sum % 10;
 
-      current.next = ListNode(sum % 10);
-      current = current.next!;
+      currentNode.next = ListNode(digit);
+      currentNode = currentNode.next!;
 
       l1 = l1?.next;
       l2 = l2?.next;
     }
-
-    return dummyHead.next;
+    return dummyNode.next;
   }
-} 
+}
+
+// class Solution {
+//   ListNode? addTwoNumbers(ListNode? l1, ListNode? l2) {
+//     ListNode dummyHead = ListNode(0);
+//     ListNode current = dummyHead;
+//     int carry = 0;
+
+//     while (l1 != null || l2 != null || carry != 0) {
+//       int x = l1?.val ?? 0;
+//       int y = l2?.val ?? 0;
+
+//       int sum = x + y + carry;
+//       carry = sum ~/ 10;
+
+//       current.next = ListNode(sum % 10);
+//       current = current.next!;
+
+//       l1 = l1?.next;
+//       l2 = l2?.next;
+//     }
+
+//     return dummyHead.next;
+//   }
+// } 
 
 void printList(ListNode? node) {
   while (node != null) {

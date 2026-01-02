@@ -19,29 +19,46 @@
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
 
+// class Solution{
+//     List<int> twoSum(List<int> nums, int target){
+//         Map<int, int> numMap = {};
 
+//         for(int i = 0; i < nums.length; i++){
+//           int num = nums[i];
+
+//           int diff = target - num;
+//           if(numMap.containsKey(diff)){
+//             print("L1-${numMap[diff]!}");
+//             print("L2-${i}");
+//             return [numMap[diff]!, i];
+//           }
+          
+//           print("L3-${i}");
+          
+//           numMap[num] = i;
+//         }
+      
+//       return [];
+//     }
+// }
 
 class Solution{
-    List<int> twoSum(List<int> nums, int target){
-        Map<int, int> numMap = {};
+  List<int> twoSum(List<int> nums, int target){
+    Map<int, int> numMap = {};
 
-        for(int i = 0; i < nums.length; i++){
-          int num = nums[i];
-
-          int diff = target - num;
-          if(numMap.containsKey(diff)){
-            print("L1-${numMap[diff]!}");
-            print("L2-${i}");
-            return [numMap[diff]!, i];
-          }
-          
-          print("L3-${i}");
-          
-          numMap[num] = i;
-        }
+    for(int i = 0; i < nums.length; i++){
+      int num = nums[i];
       
-      return [];
+      int diff = target - num;
+      if(numMap.containsKey(diff)){
+        return [numMap[diff]!, i];
+      }
+
+      numMap[num] = i;
     }
+
+    return [];
+  }
 }
 
 void main(){
