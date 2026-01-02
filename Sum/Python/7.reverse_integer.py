@@ -18,21 +18,38 @@
 # Output: 21
 
 class Solution:
-    def reverse(self, x: int) -> int:
+    def reverse(self, x: int)-> int:
         sign = -1 if x < 0 else 1
         num = abs(x)
         rev = 0
 
-        while(num != 0):
+        while num != 0:
             digit = num % 10
             num //= 10
-
-            if rev > (2**32 - 1 - digit) // 10:
-                return 0
+            
+            # if rev > (2**31 - digit) // 10:
+            #     return 0
             
             rev = rev * 10 + digit
-
+            
         return rev * sign
+
+# class Solution:
+#     def reverse(self, x: int) -> int:
+#         sign = -1 if x < 0 else 1
+#         num = abs(x)
+#         rev = 0
+
+#         while(num != 0):
+#             digit = num % 10
+#             num //= 10
+
+#             if rev > (2**32 - 1 - digit) // 10:
+#                 return 0
+            
+#             rev = rev * 10 + digit
+
+#         return rev * sign
 
 # class Solution:
 #     def reverse(self, x: int)-> int:

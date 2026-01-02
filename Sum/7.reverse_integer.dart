@@ -29,8 +29,8 @@ class Solution{
     int rev = 0;
 
     while(num != 0){
-      int digit = num % 10; // modulus operator
-      num ~/= 10; // integer division operator
+      int digit = num % 10;
+      num ~/= 10;
 
       if(rev > (2147483647 - digit) ~/ 10){
         return 0;
@@ -41,6 +41,26 @@ class Solution{
     return rev * sign;
   }
 }
+
+// class Solution{
+//   int reverse(int x){
+//     int sign = x < 0 ? -1 : 1;
+//     int num = x.abs();
+//     int rev = 0;
+
+//     while(num != 0){
+//       int digit = num % 10; // modulus operator
+//       num ~/= 10; // integer division operator
+
+//       if(rev > (2147483647 - digit) ~/ 10){
+//         return 0;
+//       }
+
+//       rev = rev * 10 + digit;
+//     }
+//     return rev * sign;
+//   }
+// }
 
 // class Solution{
 //   int reverse(int x){
