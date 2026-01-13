@@ -17,30 +17,48 @@
 
 void main(){
   final solution = Solution();
-  final result = solution.reverse(-321);
 
-  print(result);
+  print(solution.reverse(-321));
+  print(solution.reverse(-7348));
+  print(solution.reverse(5463));
 }
 
 class Solution{
-  int reverse(int x){
-    int sign = x < 0 ? -1 : 1;
-    int num = x.abs();
-    int rev = 0;
+    int reverse(int x){
+      int sign = x < 0 ? -1 : 1;
+      int num = x.abs();
+      int rev = 0;
 
-    while(num != 0){
-      int digit = num % 10;
-      num ~/= 10;
+      while(num != 0){
+        int digit = num % 10;
+        num ~/= 10;
 
-      if(rev > (2147483647 - digit) ~/ 10){
-        return 0;
+        rev = rev * 10 + digit;
       }
-
-      rev = rev * 10 + digit;
+      
+      return rev * sign;
     }
-    return rev * sign;
-  }
 }
+
+// class Solution{
+//   int reverse(int x){
+//     int sign = x < 0 ? -1 : 1;
+//     int num = x.abs();
+//     int rev = 0;
+
+//     while(num != 0){
+//       int digit = num % 10;
+//       num ~/= 10;
+
+//       if(rev > (2147483647 - digit) ~/ 10){
+//         return 0;
+//       }
+
+//       rev = rev * 10 + digit;
+//     }
+//     return rev * sign;
+//   }
+// }
 
 // class Solution{
 //   int reverse(int x){

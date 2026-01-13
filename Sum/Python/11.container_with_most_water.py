@@ -6,21 +6,44 @@ class Solution:
         right = len(height) - 1
         maxArea = 0
 
-        while(left < right):
-            h = height[left] if height[left] < height[right] else height[right]
+        while left < right:
+            h = min(height[left], height[right])
             w = right - left
 
             area = h * w
 
             if area > maxArea:
                 maxArea = area
-            
+
             if height[left] < height[right]:
-                left = left + 1
+                left += 1
             else:
-                right = right - 1
-        
+                right -= 1
+
         return maxArea
+
+# ====@ Date: 13-01-2026 @====
+# class Solution:
+#     def maxArea(self, height: List[int])-> int:
+#         left = 0
+#         right = len(height) - 1
+#         maxArea = 0
+
+#         while(left < right):
+#             h = height[left] if height[left] < height[right] else height[right]
+#             w = right - left
+
+#             area = h * w
+
+#             if area > maxArea:
+#                 maxArea = area
+            
+#             if height[left] < height[right]:
+#                 left = left + 1
+#             else:
+#                 right = right - 1
+        
+#         return maxArea
             
 
 # class Solution:
